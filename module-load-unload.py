@@ -11,7 +11,7 @@ class ModuleList:
         return release
 
     @classmethod
-    def get_module_list(cls):
+    def get_installed_modules(cls):
         modules = []
         release = cls.__get_kernel_release()
 
@@ -24,7 +24,7 @@ class ModuleList:
         return modules
 
 def main():
-    modules = ModuleList.get_module_list()
+    modules = ModuleList.get_installed_modules()
     print(len(modules))
 
 
