@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-from modlist import ModuleList
+from modlist import SystemModules
 
 def main():
-    modules = ModuleList.get_installed_modules()
+    modules = SystemModules.get_installed_modules()
     print(len(modules))
 
 

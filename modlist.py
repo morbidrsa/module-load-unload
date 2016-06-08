@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 
-class ModuleList:
+class SystemModules:
     def __init__(self):
         pass
 
