@@ -3,6 +3,23 @@ import kmod
 from modlist import SystemModules
 from random import shuffle
 
+def do_load(km, modules_usable):
+    shuffle(modules_usable)
+    for mod in modules_usable:
+        try:
+            km.insmod(mod)
+        except:
+            pass
+
+def do_unload(km, modules_usable):
+    shuffle(modules_usable)
+    for mod in modules_usable:
+        try:
+            km.rmmod(mod)
+        except:
+            pass
+
+
 def do_test(km, modules_usable):
     """
     this runs the actual test.
@@ -11,19 +28,8 @@ def do_test(km, modules_usable):
     3) randomize the list again
     4) iterate over the list and unload all modules
     """
-    shuffle(modules_usable)
-    for mod in modules_usable:
-        try:
-            km.insmod(mod)
-        except:
-            pass
-
-    shuffle(modules_usable)
-    for mod in modules_usable:
-        try:
-            km.rmmod(mod)
-        except:
-            pass
+    do_load(km, modules_usable)
+    do_unload(km, modules_usable)
 
 def main():
     km = kmod.Kmod()
