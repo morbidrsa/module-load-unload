@@ -19,7 +19,7 @@ class SystemModules:
         for root, dirs, files in os.walk(moddir):
             for file in files:
                 if file.endswith('.ko'):
-                    modules.append(file)
+                    modules.append(file[:-3].replace('-','_'))
 
         return modules
 
