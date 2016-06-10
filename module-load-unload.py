@@ -48,5 +48,14 @@ def main():
 
     do_test(km, modules_usable)
 
+    modules_left = [str(m.name) for m in km.loaded()]
+    num_left = len(modules_left)
+
+    delta = num_left - num_loaded
+    if delta > 0:
+        print("Could not unload %d modules" % delta)
+    elif delta < 0:
+        print("Removed too much modules %d" % delta)
+
 if __name__ == '__main__':
     main()
