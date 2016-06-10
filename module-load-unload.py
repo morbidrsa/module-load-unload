@@ -13,7 +13,9 @@ def do_load(km, modules_usable):
 
 def do_unload(km, modules_usable):
     shuffle(modules_usable)
-    while len(modules_usable) > 0:
+    i = 0
+    while len(modules_usable) > 0 and i < 1000:
+        i += 1
         for mod in modules_usable:
             try:
                 km.rmmod(mod)
