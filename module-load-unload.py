@@ -56,6 +56,9 @@ def main():
     delta = num_left - num_loaded
     if delta > 0:
         print("Could not unload %d modules" % delta)
+        mods = [x for x in modules_left if x not in modules_loaded]
+        for m in mods:
+            print m
     elif delta < 0:
         print("Removed too much modules %d" % delta)
 
