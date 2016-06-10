@@ -7,8 +7,8 @@ def do_load(km, modules_usable):
     shuffle(modules_usable)
     for mod in modules_usable:
         try:
-            km.insmod(mod)
-        except:
+            km.modprobe(mod)
+        except Exception, e:
             pass
 
 def do_unload(km, modules_usable):
