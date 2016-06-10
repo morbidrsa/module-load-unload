@@ -13,11 +13,13 @@ def do_load(km, modules_usable):
 
 def do_unload(km, modules_usable):
     shuffle(modules_usable)
-    for mod in modules_usable:
-        try:
-            km.rmmod(mod)
-        except:
-            pass
+    while len(modules_usable) > 0:
+        for mod in modules_usable:
+            try:
+                km.rmmod(mod)
+            except Exception, e:
+                continue
+            modules_usable.remove(mod)
 
 
 def do_test(km, modules_usable):
